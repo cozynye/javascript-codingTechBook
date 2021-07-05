@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+   
+</head>
+<body>
+    <ul style="cursor: pointer;">
+        <li> 클릭하면 0</li>
+        <li> 클릭하면 1</li>
+        <li> 클릭하면 2</li>
+        </ul>
+</body>
+<script>
+     const items = document.querySelectorAll('li');
+        for(var i = 0; i< items.length; i++) {
+            items[i].addEventListener('click', () => {
+                console.log(i)
+                alert(i);
+            })
+        };
+
+    function addClick(items){
+        for (var i = 0; i<items.length; i++){
+            items[i].onClick=function(){
+                return i;
+            };
+        }
+        return items;
+    }
+    const example = [{},{}];
+    const clickSet = addClick(example);
+    clickSet[0].onClick();
+
+    
+    </script>
+</html>
