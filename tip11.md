@@ -19,6 +19,15 @@ JS에서는 null, undfined, '', 0 -> false 한값으로 취급
 ```
 
 ```javascript
+Object.assign(target, ...sources)
+             대상객체,   하나 이상의 출처 객체
+
+- 반환값 -> 대상 객체
+- 동일한 키가 존재할 경우 대상 객체의 속성은 출처 객체의 속성으로 덮여짐
+- 동일한 속성은 출처 객체 순서 뒤에 위치한 객체에 의해 덮어쓰임
+```
+
+```javascript
 const defaults={
     author:'',
     title:'',
@@ -41,10 +50,8 @@ function addBookDefaults(book,defaults){
     return updated;
 }
 
-Object.assign(defaults, book); -> 원본 객체를 조작하게 된다
-
+Object.assign(defaults, book); -> 문제점 : 원본 객체를 조작하게 된다
 ```
-
 
 - Object.assign()의 첫번째 객체에 빈 객체를 사용하면 위의 문제를 피할 수 있다
 
@@ -99,3 +106,6 @@ const employee = Object.assign(
     },
 );
 ```
+
+--참조
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
