@@ -15,7 +15,7 @@ expr1을 true로 변환할 수 있는 경우 expr2를 반환, 그렇지 않으�
 OR(||) expr1 || expr2
 expr1을 true로 변환할 수 있으면 expr1을 반환, 그렇지 않으면 expr2를 반환
 
-JS에서는 null, undfined, '', 0 -> false 한값으로 취급
+JS에서는 null, undefined, '', 0 -> false 한값으로 취급
 ```
 
 ```javascript
@@ -26,6 +26,29 @@ Object.assign(target, ...sources)
 - 동일한 키가 존재할 경우 대상 객체의 속성은 출처 객체의 속성으로 덮여짐
 - 동일한 속성은 출처 객체 순서 뒤에 위치한 객체에 의해 덮어쓰임
 ```
+
+```javascript
+<script>
+    const sports={
+        arrow:'gold',
+        taekwondo:''
+
+    };
+
+    const news={
+        jodo:'bronze',
+        taekwondo:'gold'
+
+    };
+
+    const total=Object.assign(sports, news);
+
+    console.log(total);
+    console.log(sports);
+</script>
+```
+
+
 
 ```javascript
 const defaults={
@@ -53,7 +76,7 @@ function addBookDefaults(book,defaults){
 Object.assign(defaults, book); -> 문제점 : 원본 객체를 조작하게 된다
 ```
 
-- Object.assign()의 첫번째 객체에 빈 객체를 사용하면 위의 문제를 피할 수 있다
+- Object.assign()의 첫번째 인자에 빈 객체를 사용하면 위의 문제를 피할 수 있다
 
 ```javascript
 const defaults={
@@ -84,6 +107,13 @@ const defaultEmployee = {
     years:0,
 };
 const employee = Object.assign({}, defaultEmployee);
+
+defaultEmployee.name.last='false';
+console.log(employee);
+console.log(defaultEmployee==employee)
+console.log(defaultEmployee.name.last==employee.name.last)
+
+* name에 할당된 객체에 대한 참조만 복사
 ```
 
 - 중첩된 객체로 인한 문제를 피하는 방법은 두가지
