@@ -1,0 +1,18 @@
+<script>
+
+let dog=new Map()
+    .set('색상', '검정색')
+    .set('종', '시바견')
+    .set('지역', '서울');
+
+let modify=new Map()
+    .set('지역', '진주');
+
+let modify2=new Map()
+    .set('나이', 6);
+
+let update= new Map([...dog, ...modify,...modify2]);
+
+console.log(update);
+
+</script>
